@@ -21,25 +21,23 @@ public class Splash implements Screen{
 	private OrthographicCamera camera;
 	
 	public Splash(Game g) {
-		// TODO Auto-generated constructor stub
 		myGame = g;
 		ImageCache.manager.load("images/scumcards.txt", TextureAtlas.class);
 	}
 	
 	@Override
 	public void render(float delta) {
-		// TODO Auto-generated method stub
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        if(ImageCache.manager.update()){
-        	sp.begin();
-            fnt.draw(sp, "Click to Continue", stringX, stringY);
-            sp.end();
-            if (Gdx.input.isTouched()){
-            	ImageCache.setUpCardAtlas();
-            	myGame.setScreen(new MemoryScreen());
-            }
-        }
+        	if(ImageCache.manager.update()){
+        		sp.begin();
+            		fnt.draw(sp, "Click to Continue", stringX, stringY);
+            		sp.end();
+            		if (Gdx.input.isTouched()){
+            			ImageCache.setUpCardAtlas();
+            		myGame.setScreen(new MemoryScreen());
+            		}
+        	}
 	}
 
 	@Override
